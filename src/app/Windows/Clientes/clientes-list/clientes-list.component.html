@@ -1,0 +1,33 @@
+
+<div class="row w-110 text-center bg-info" style="margin-bottom: 2.6vh;">
+    <h1 class="display-4 fw-medium" style="padding: 1.5%;"> LISTADO DE CLIENTES</h1>
+</div>
+
+
+
+<div class="container">
+
+    <table class="table table-striped table-hover">
+
+    <thead>
+        <tr>
+        <th scope="col">ID</th>
+          <th scope="col">PRODUCTO</th>
+          <th scope="col">PRECIO</th>
+          <th scope="col">FECHA</th>
+        </tr>
+      </thead>
+  <!-- NUEVA SINTAXYS FOR DE ANGULAR 17v -->
+  @for (dato of clientes; track dato.id){
+      <tbody>
+        <tr > 
+          <td scope="row">{{dato.id}}</td>
+          <td>{{dato.nombre}}</td>
+          <td>{{dato.nombre_fantasia}}</td>
+          <td>{{dato.calle && dato.nro_calle}}</td>
+        </tr>
+      </tbody>
+    }
+   
+  </table>
+</div>

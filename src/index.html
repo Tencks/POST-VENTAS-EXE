@@ -3,11 +3,16 @@
 <head>
   <meta charset="utf-8">
   <title>PostVentasEXE</title>
-  <base href="/">
+
+  <!-- USAR ./ ES PARA ELECTRON PERO ROMPE EL SSR Y LA HYDRATATION -->
+  <!-- <base href="./"> --> 
+  <base href="/"> <!-- USAR / ES PARA APP NORMAL DE ANGULAR Y NO DEBERÍA ROMPER SSR -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="png" href="./assets/IconTest.png">
 </head>
-<body>
+<body style="overflow-x:hidden;" id="BackgroudStyles"> 
+<!--SE AGREGO OVERFLOW-X EN HIDDEN PARA QUE NO SE GENERE EL SCROLL EN X-->
   <app-root></app-root>
 </body>
 </html>

@@ -1,0 +1,54 @@
+
+
+<nav class="navbar navbar-dark bg-dark sticky-top" >
+@if (Empresa){@for (dato of Empresa; track dato.id){
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="clientes" style="cursor: pointer; color: white;">{{dato.nombre || 'Empresa'}}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">{{dato.nombre || 'Empresa'}}</h5>
+
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <!-- <a class="nav-link active" aria-current="page" (Click)="Factura()" style="cursor: pointer;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false">Facturación</a> -->
+              <a class="nav-link" aria-current="page" routerLink="clientes" routerLinkActive="active" style="cursor: pointer;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false">Clientes</a>
+            </li>
+            <li class="nav-item">
+              <!-- <a class="nav-link" (click)="Resumen()" style="cursor: pointer;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false">Resumen</a> -->
+              <a class="nav-link" routerLink="Resumen/Hoy" routerLinkActive="active" style="cursor: pointer;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false">Resumen</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="dashboard" routerLinkActive="active" style="cursor: pointer;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false">Dashboard</a>
+              </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" (click)="Options()" style="cursor: pointer;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false">Opciones</a>
+              </li>
+
+            
+          </ul>
+
+         
+          <form class="d-flex" >
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+
+          <div class="d-flex">
+            <div class="title">Bienvenido de vuelta! {{User}}</div>
+            <div class="btn primary-btn" routerLink="auth">Iniciar Sesión</div>
+          </div>
+        </div>
+      </div>
+    </div>
+}
+}
+
+
+  </nav>
