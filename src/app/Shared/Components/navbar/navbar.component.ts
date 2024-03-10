@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { EmpresaI } from '../../../Core/Interfaces/Ohter/Empresa.interface';
 import { ApiDRFService } from '../../../Core/Services/api-drf.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { LocalStorageService } from '../../../Core/Services/local-storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -19,7 +20,7 @@ export class NavbarComponent implements OnInit {
   User:string = 'Tencks';
 
   urlActual!:string;
-  constructor(private router:Router, private api:ApiDRFService) {}
+  constructor(private router:Router, private api:ApiDRFService,private coolStorage:LocalStorageService) {}
   ngOnInit(): void {
     this.urlActual = this.router.url;
 
@@ -69,9 +70,9 @@ export class NavbarComponent implements OnInit {
           <div class="col">
                <mat-label>Modo Oscuro</mat-label>
             <select class="form-select" id="FondoColor">
-                   <option value="#f8f9fc">Sí</option>
-                   <option value="#858796">No</option>
-                   <option value="#f6c23e">Sorpresa</option>
+                   <option value="black">Sí</option>
+                   <option value="white">No</option>
+                   <option value="otro">Sorpresa</option>
             </select>
           </div>
   
@@ -117,7 +118,10 @@ export class NavbarComponent implements OnInit {
                 let valor = elemento.value;
                 if(nombre){
                   ConfigData[nombre] = valor;
-                  localStorage.setItem(nombre, valor)
+                  // localStorage.setItem(nombre, valor)
+                  let nose = this.coolStorage.setFondoColor(nombre, valor);
+                  console.log(nose, 'Nose se como sale ')
+
                 }
               }
             }

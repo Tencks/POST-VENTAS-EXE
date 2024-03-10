@@ -13,6 +13,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-cool/storage": "^13.0.0",
     "@angular/animations": "^17.2.0",
     "@angular/common": "^17.2.0",
     "@angular/compiler": "^17.2.0",
@@ -25,6 +26,7 @@
     "@angular/ssr": "^17.2.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
+    "cookie-universal-nuxt": "^2.2.2",
     "electron": "^29.1.0",
     "electron-icon-maker": "^0.0.5",
     "express": "^4.18.2",

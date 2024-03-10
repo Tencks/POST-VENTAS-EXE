@@ -1,4 +1,9 @@
+
+
 <app-navbar />
-
-
-<router-outlet />
+@if (!fondoColor){ <div style="color: red; font-size: 20rem;" >{{fondoColor}}</div>}
+<div [ngClass]="{ 'fondo-black': fondoColor === 'black','fondo-white': fondoColor === 'white','fondo-otro': fondoColor === 'otro'  }">
+    
+    <router-outlet [style.bacground-color]=fondoColor />
+    <app-footer />
+</div>

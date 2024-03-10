@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { listaClientesI } from '../Interfaces/Ohter/Productos.interface';
+import { listaClientesI } from '../Interfaces/Ohter/Clientes.interface';
 import { LoginI, RegisterI, ResponseI, TokenI } from '../Interfaces/Auth/Login.interface';
 
 @Injectable({

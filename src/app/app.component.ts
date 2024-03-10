@@ -2,30 +2,37 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ClientesListComponent } from './Windows/Clientes/clientes-list/clientes-list.component';
 import { NavbarComponent } from './Shared/Components/navbar/navbar.component';
-import { style } from '@angular/animations';
+import { LocalStorageService } from './Core/Services/local-storage.service';
+import { CoolStorageModule } from '@angular-cool/storage';
+import { CommonModule } from '@angular/common';
+import { FooterComponent } from './Shared/Components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,ClientesListComponent,NavbarComponent],
+  imports: [RouterOutlet,ClientesListComponent,NavbarComponent,CoolStorageModule, CommonModule,FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit{
-  constructor(){}
+  constructor(private coolStorage:LocalStorageService){}
   title = 'PostVentasEXE';
-  Fondo:any = '';
+  fondoColor!:string;
 
   ngOnInit(): void {
-   if(localStorage.getItem('FondoColor')){
-      this.Fondo = localStorage.getItem('FondoColor');
-      console.log(this.Fondo)
-        
-        // document.getElementById('BackgroundStyles').style.backgroundColor = this.Fondo.value;
-      
-   
-    }
-  
-   }
-  
+
+      // this.localStorageS.getFondoColor().subscribe((color:string)  =>{
+      //   this.fondoColor = color;
+      // });
+
+         // Obtiene un valor
+          const dato = this.coolStorage.getFondoColor('FondoColor');
+          console.log(dato, 'Esto sale de app.component'); // { key: 'valor' }
+          this.fondoColor = dato;
+      }
+
 }
+  
+   
+  
+
